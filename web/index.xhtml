@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        
+        
+        <link href="css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
+        <link type="text/css" rel="stylesheet" href="css/style.css"/>
+        
+        <title>Formulario Contacto</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top" class="top">
+            <div class="container" >
+                <div class="row-fluid">
+                    <div class="span12">
+                        <h1>Practica 5-2 JSF</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="container" class="center_content">
+            <div class="container">
+                    <div class="row-fluid">
+                        <!-- .inner -->
+                        <div class="span12 inner">
+                            <!--BEGIN INPUT TEXT FIELDS-->
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <div class="box">
+                                        <header>
+                                            <div class="icons"><i class="icon-edit"></i></div>
+                                            <h5>Contactanos</h5>
+                                            <!-- /.toolbar -->
+                                        </header>
+                                        <div id="div-1" class="accordion-body collapse in body">
+                                            <h:form class="form-horizontal">
+                                                <div class="control-group">
+                                                    <label class="control-label">Nombre</label>
+
+                                                    <div class="controls with-tooltip">
+                                                        <h:inputText id="nombre" class="span6 input-tooltip" label="Nombre"
+                                                                     value="#{contacto.nombre}" required="true"/>
+                                                        <h:message for="nombre" />
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label for="appelido" class="control-label">Apellido</label>
+
+                                                    <div class="controls with-tooltip">
+                                                        <h:inputText id="apellido" label="Apellido" class="span6 input-tooltip"
+                                                                     value="#{contacto.apellido}" required="true"/>
+                                                        <h:message for="apellido" />
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label for="appelido" class="control-label">Eimal</label>
+
+                                                    <div class="controls with-tooltip">
+                                                        <h:inputText id="email" class="span6 input-tooltip" value="#{contacto.email}" 
+                                                                     validator="#{contacto.validarEmail}"/>
+                                                        <h:message for="email"/>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="fdate">Fecha Nacimiento</label>
+                                                    <div class="controls">
+                                                        <h:inputText class="span6" id="fdate" value="#{contacto.fdate}">
+                                                            <f:convertDateTime pattern="dd/MM/yy"/>
+                                                        </h:inputText>                                                        
+                                                        <span class="help-inline">99/99/9999</span>
+                                                        <h:message for="fdate" />
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="telefono">Telefono</label>
+                                                    <div class="controls">
+                                                        <h:inputText class="span6" id="telefono" value="#{contacto.telefono}"/>
+                                                        <span class="help-inline">+34 999 999 999</span>
+                                                        <h:message for="telefono" />
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label for="textar" class="control-label">Mensaje</label>
+                                                    <div class="controls">
+                                                        <h:inputTextarea class="span6" id="textar" value="#{contacto.mensaje}"/>
+                                                        <h:message for="mensaje" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-actions no-margin-bottom">
+                                                    <h:commandButton action="#{contacto.enviar}" value="Eviar" class="btn btn-primary"/>
+                                                </div>
+                                            </h:form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--END TEXT INPUT FIELD-->
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+
+    </h:body>
+
+</html>
